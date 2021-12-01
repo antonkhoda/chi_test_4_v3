@@ -1,6 +1,26 @@
-# TodoList
+# To-Do List
+
+Task Management System
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.0.3.
+
+## Installation
+
+### JSON Server
+
+Install JSON Server 
+
+https://www.npmjs.com/package/json-server
+
+```bash
+npm install -g json-server
+```
+
+Start JSON Server
+
+```bash
+json-server --watch db.json
+```
 
 ## Development server
 
