@@ -1,25 +1,27 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
-import { ReactiveFormsModule } from '@angular/forms';
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { SharedModule } from "./assets/modules/shared.module";
+import { CoreModule } from "./assets/modules/core.module";
+import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
 import { ListComponent } from './list/list.component';
-import { ModelService } from './shared/services/model.service';
-import { ViewService } from './shared/services/view.service';
+import { ListFormComponent } from './list/list-form/list-form.component';
+import { ListBlockComponent } from './list/list-block/list-block.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ListComponent
+    ListComponent,
+    ListFormComponent,
+    ListBlockComponent
   ],
   imports: [
-    BrowserModule,
     AppRoutingModule,
-    FormsModule,
-    ReactiveFormsModule,
+    HttpClientModule,
+    SharedModule,
+    CoreModule.forRoot(),
   ],
-  providers: [ModelService, ViewService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

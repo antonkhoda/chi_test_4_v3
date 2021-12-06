@@ -8,7 +8,7 @@ export class ViewService {
 
   constructor() { }
 
-  quantityItem(arr: Array<IListInterface>) :string {
+  public quantityItem(arr: Array<IListInterface>): string {
     if (!arr.length) {
       return "";
     }
@@ -22,9 +22,9 @@ export class ViewService {
     });
   
     if (quantity === 1) {
-      return quantity + " item left";
+      return `${quantity} item left`;
     }
   
-    return quantity + " items left"; 
+    return `${quantity} items left`; 
   }
 }

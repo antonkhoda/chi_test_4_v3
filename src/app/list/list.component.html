@@ -1,18 +1,4 @@
 <div class="main">
-  <form class="main-form" (ngSubmit)="addNewItem()">
-    <input type="text" class="main-form__text" placeholder="What needs to be done?" [(ngModel)]="newItemTitle"
-      name="newItemTitle" />
-    <input type="submit" class="main-form__submit">
-  </form>
-
-  <div class="main-render" *ngFor="let l of list">
-    <div class="main-render__item">
-      <input type="checkbox" [checked]="l.completed" class="main-render__item-status" (change)="changeItemBtn($event)"
-        [attr.data-id]="l.id">
-      <span class="main-render__item-txt"
-        [ngClass]="{'main-render__item-txt--checked': l.completed }">{{ l.title }}</span>
-      <button class="main-render__item-delete" (click)="deteteItemBtn($event)" [attr.data-id]="l.id"></button>
-    </div>
-  </div>
-  <div class="main-info" *ngIf="counter">{{ counter }}</div>
+  <app-list-form></app-list-form>
+  <app-list-block></app-list-block>
 </div>

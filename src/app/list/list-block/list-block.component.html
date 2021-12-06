@@ -1,0 +1,10 @@
+<div class="main-render" *ngFor="let item of list">
+  <div class="main-render__item">
+    <input type="checkbox" [checked]="item.completed" class="btn--status"
+      (change)="changeItemBtn(item.id, item.completed)">
+    <span class="main-render__item-txt"
+      [ngClass]="{'main-render__item-txt--checked': item.completed }">{{ item.title }}</span>
+    <button class="btn--delete" (click)="deteteItemBtn(item.id)"></button>
+  </div>
+</div>
+<div class="main-info" *ngIf="counter">{{ counter }}</div>

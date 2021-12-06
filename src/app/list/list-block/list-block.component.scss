@@ -1,0 +1,34 @@
+.main {
+  &-render {
+    &__item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      background-color: #fff;
+      border: 1px solid #eceef0;
+      border-top: none;
+
+      &-txt {
+        width: 80%;
+        text-align: left;
+
+        &--checked {
+          color: #d9d9d9;
+          text-decoration: line-through;
+        }
+      }
+    }
+  }
+
+  &-info {
+    padding: 10px 20px;
+    font-size: 15px;
+    border: 1px solid #eceef0;
+    border-top: none;
+
+    &--none {
+      display: none;
+    }
+  }
+}

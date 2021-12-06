@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ModelService } from '../shared/services/model.service';
-import { IListInterface } from '../shared/interfaces/list';
-import { ViewService } from '../shared/services/view.service';
+// import { ModelService } from '../assets/services/model.service';
+// import { IListInterface } from '../assets/interfaces/list';
+// import { ViewService } from '../assets/services/view.service';
 
 @Component({
   selector: 'app-list',
@@ -9,45 +9,72 @@ import { ViewService } from '../shared/services/view.service';
   styleUrls: ['./list.component.scss'],
 })
 export class ListComponent implements OnInit {
+  // public url: string = 'http://localhost:3000/comments/';
+  // public list: Array<IListInterface> = [];
+  // public counter: string = '';
 
-  public url: string = 'http://localhost:3000/comments';
-  public list: Array<IListInterface> = [];
-  public counter: string = '';
-  public newItemTitle: string = '';
+  constructor(
+    // private modelService: ModelService,
+    // private viewService: ViewService
+  ) {}
 
-  constructor(private _modelService: ModelService, private _viewService: ViewService) {}
+  ngOnInit(): void {}
 
-  ngOnInit() :void {
-    this.getItemsAndRender();
-  }
+  // public getItemsAndRender(): void {
+  //   this.modelService.getAll(this.url).subscribe(
+  //     (data) => {
+  //       this.list = data;
+  //       this.counter = this.viewService.quantityItem(data);
+  //     },
+  //     (error) => {
+  //       console.log(`Get items ERROR: ${error}`);
+  //     }
+  //   );
+  // }
 
-  getItemsAndRender () :void {
-    this._modelService.getItems(this.url)
-      .then((json: Array<IListInterface>) => {
-        this.list = json;
-        this.counter = this._viewService.quantityItem(json);
-      });
-  }
+  // public deteteItemBtn(itemId: number): void {
+  //   this.modelService.delete(this.url, itemId).subscribe(
+  //     () => {
+  //       this.getItemsAndRender();
+  //     },
+  //     (error) => {
+  //       console.log(`Detete item ERROR: ${error}`);
+  //     }
+  //   );
+  // }
 
-  deteteItemBtn (event :any ) :void {
-    this._modelService.deteteItem(this.url, event.target.getAttribute("data-id"))
-      .then(() :void => {
-        this.getItemsAndRender();
-      });
-  }
+  // public changeItemBtn(itemId: number, itemStatus: boolean): void {
+  //   this.modelService.getOne(this.url, itemId).subscribe(
+  //     (data) => {
+  //       data.completed = !itemStatus;
+  //       this.modelService.update(this.url, data, itemId).subscribe(
+  //         () => {
+  //           this.getItemsAndRender();
+  //         },
+  //         (error) => {
+  //           console.log(`Update item ERROR: ${error}`);
+  //         }
+  //       );
+  //     },
+  //     (error) => {
+  //       console.log(`Get one item ERROR: ${error}`);
+  //     }
+  //   );
+  // }
 
-  changeItemBtn (event :any ) :void {
-    this._modelService.changeItem(this.url, event.target.getAttribute("data-id"), event.target.checked)
-      .then(() :void => {
-        this.getItemsAndRender();
-      });
-  }
-
-  addNewItem () :void {
-    this._modelService.addItem(this.url, this.newItemTitle)
-      .then(() :void => {
-        this.getItemsAndRender();
-      });
-    this.newItemTitle = '';
-  }
+  // public addNewItem(newItemTitle: string): void {
+  //   let newItem: IListInterface = {
+  //     id: Math.floor(Math.random() * 10000),
+  //     title: newItemTitle,
+  //     completed: false,
+  //   };
+  //   this.modelService.create(this.url, newItem).subscribe(
+  //     () => {
+  //       this.getItemsAndRender();
+  //     },
+  //     (error) => {
+  //       console.log(`Create item ERROR: ${error}`);
+  //     }
+  //   );
+  // }
 }

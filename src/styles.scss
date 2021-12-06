@@ -3,19 +3,45 @@
 *,
 ::after,
 ::before {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 body,
 button,
 input {
-    font-family: "Montserrat", sans-serif;
-    font-weight: bold;
-    font-size: 20px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  font-size: 20px;
 }
 
 *:focus {
-    outline: none !important;
+  outline: none !important;
+}
+
+.wrapper {
+  width: 500px;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.title {
+  font-size: 80px;
+  text-align: center;
+  margin-bottom: 10px;
+  color: #af2f2f26;
+}
+
+.btn--status {
+  width: 30px;
+  height: 30px;
+}
+
+.btn--delete {
+  width: 30px;
+  height: 30px;
+  background: url('./app/assets/img/cross.svg') no-repeat center;
+  background-size: 50%;
+  border: none;
 }
