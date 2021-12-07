@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ModelService } from '../assets/services/model.service';
-import { ViewService } from '../assets/services/view.service';
 import { IListInterface } from '../assets/interfaces/list';
 import { Subscription } from 'rxjs';
 
@@ -16,8 +15,7 @@ export class ListComponent implements OnInit {
   private subscriptions: Subscription = new Subscription();
 
   constructor(
-    private modelService: ModelService,
-    private viewService: ViewService
+    private modelService: ModelService
   ) {}
 
   ngOnInit(): void {
@@ -33,7 +31,7 @@ export class ListComponent implements OnInit {
       this.modelService.getAll(this.url).subscribe(
         (data) => {
           this.listElements = data;
-          this.counterInfo = this.viewService.quantityItem(data);
+          this.counterInfo = this.quantityItem(data);
         },
         (error) => {
           console.log(`Get items ERROR: ${error}`);
@@ -95,5 +93,14 @@ export class ListComponent implements OnInit {
         }
       )
     );
+  }
+
+  public quantityItem(arr: Array<IListInterface>): string {
+    if (!arr.length) {
+      return "";
+    }
+
+    let quantity = arr.filter(value => !value.completed).length;  
+    return quantity === 1 ? `${quantity} item left` : `${quantity} items left`; 
   }
 }

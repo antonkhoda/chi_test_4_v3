@@ -8,27 +8,21 @@ import { IListInterface } from 'src/app/assets/interfaces/list';
 })
 export class ListBlockComponent implements OnInit {
 
+  @Input() list: Array<IListInterface> = [];
+  @Input() counter: string = '';
+
+  @Output() deteteItem = new EventEmitter<number>();
+  @Output() changeItem = new EventEmitter<IListInterface>();
+
   constructor(){}
 
   ngOnInit(): void {}
 
-  @Input()
-  list: Array<IListInterface> = [];
-  
-  @Input()
-  counter: string = '';
-
-  @Output()
-  deteteItem = new EventEmitter();
-
-  deteteItemClick(itemId: number): void{
+  public deteteItemClick(itemId: number): void{
     this.deteteItem.emit(itemId);
   }
 
-  @Output()
-  changeItem = new EventEmitter();
-
-  changeItemClick(item: IListInterface){
+  public changeItemClick(item: IListInterface){
     this.changeItem.emit(item);
   }
 }

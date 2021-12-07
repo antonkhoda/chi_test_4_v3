@@ -8,12 +8,11 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 export class ListFormComponent implements OnInit {
   public newItemTitle: string = '';
 
+  @Output() addNewItem = new EventEmitter<string>();
+
   constructor() {}
 
   ngOnInit(): void {}
-
-  @Output()
-  addNewItem = new EventEmitter();
 
   public addNewItemClick(): void {
     this.addNewItem.emit(this.newItemTitle);
