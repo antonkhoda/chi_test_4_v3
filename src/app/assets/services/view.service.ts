@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
 import { IListInterface } from '../interfaces/list';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class ViewService {
 
   constructor() { }

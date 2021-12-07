@@ -3,9 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { IListInterface } from '../interfaces/list';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class ModelService {
   constructor(private http: HttpClient) {}
 

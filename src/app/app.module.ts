@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
-import { SharedModule } from "./assets/modules/shared.module";
-import { CoreModule } from "./assets/modules/core.module";
 import { AppRoutingModule } from './app-routing.module';
-import { HttpClientModule } from '@angular/common/http';
+
+import { SharedModule } from "./shared/shared.module";
+import { CoreModule } from "./core/core.module";
+
 import { ListComponent } from './list/list.component';
 import { ListFormComponent } from './list/list-form/list-form.component';
 import { ListBlockComponent } from './list/list-block/list-block.component';
@@ -17,9 +18,8 @@ import { ListBlockComponent } from './list/list-block/list-block.component';
   ],
   imports: [
     AppRoutingModule,
-    HttpClientModule,
     SharedModule,
-    CoreModule.forRoot(),
+    CoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]

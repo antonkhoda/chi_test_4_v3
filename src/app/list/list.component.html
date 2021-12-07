@@ -1,4 +1,5 @@
 <div class="main">
-  <app-list-form></app-list-form>
-  <app-list-block></app-list-block>
+  <app-list-form (addNewItem)='addNewItem($event)'></app-list-form>
+  <app-list-block [list]='listElements' [counter]='counterInfo' (deteteItem)='deteteItem($event)'
+    (changeItem)='changeItem($event)'></app-list-block>
 </div>
